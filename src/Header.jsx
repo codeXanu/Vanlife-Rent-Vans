@@ -9,7 +9,10 @@ function Header() {
             <Link to="/" className="home-logo">
                 <img src={Logog} alt="VANLIFE" width= "144px" />    
             </Link>
-            <Link to ="/about" >About</Link>
+            <div>
+                <Link to ="/about" >About</Link>
+                <Link to ="/vans" >Vans</Link>
+            </div>
         </nav>
     )
 }
