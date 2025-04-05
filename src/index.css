@@ -1,0 +1,183 @@
+:root {
+  font-family: inter, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: rgb(54, 53, 53);
+  margin: 0px;
+  padding: 0px;
+}
+.main-container{
+  margin:0 auto;
+  max-width: 750px;
+  /* height: 100vh; */
+  background-color: #FFF7ED;
+  display: flex;
+  flex-direction: column;
+}
+.nav-bar{
+  width: 100%;
+  height: 111px;
+  background-color: #FFCC8D;
+  padding-block: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px;
+}
+footer{
+  width: 100%;
+  height: 74px;
+  background-color:#252525 ;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #AAAAAA;
+}
+.home-logo{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  justify-content: center;
+}
+.home-logo img:hover {
+  /* filter: brightness(0.85); */
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+  
+}
+.nav-bar a{
+  padding: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4D4D4D;
+}
+.nav-bar a:hover{
+  color: #161616;
+  text-decoration: underline;
+}
+
+.home-content{
+  background-image: url("bgimage.png");
+  background-size:cover;
+  height:100vh;
+  color: #FFFFFF;
+  display: flex;
+}
+.home-text{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  row-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* margin-top: 50px; */
+}
+.home-text h1{
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 42px;
+  letter-spacing: 0%;
+}
+.home-text p{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+.home-text-button{
+  width: 100%;
+}
+.home-text button{
+  width: 100%;
+  height: 50px;
+  background-color: #FF8C38;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 32px;
+  color:#FFFFFF ;
+  transition:  background-color 0.3s ease-in-out;
+}
+.home-text button:hover{
+  background-color: #f17324;
+  cursor: pointer;
+}
+button{
+  transition: transform 0.1s ease-in-out
+}
+button:active{
+  transform: scale(0.99);
+}
+
+.about-content{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.about-content img{
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-text{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  row-gap: 30px;
+}
+.about-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+}
+.about-text p{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  margin-right: 35px;
+  color: #161616;
+}
+.explore-vans{
+  margin: 20px;
+  padding: 35px;
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 198px;
+  background-color: #FFCC8D;
+  border-radius: 6px;
+}
+.explore-vans h1{
+  font-size: 24px;
+  line-height: 30px;
+}
+.explore-vans button{
+  margin-top: 30px;
+  width: 174px;
+  height: 50px;
+  padding: 15px;
+  background-color: #161616;
+  color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+}
