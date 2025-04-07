@@ -18,8 +18,8 @@ function Vans() {
         const vanType = van.type.charAt(0).toUpperCase() + van.type.slice(1)
             return (
                 <Link to={ `/vans/${van.id}`} aria-label={`View details for ${van.name}, 
-                priced at $${van.price} per day`} >
-                <div key={van.id} className="van-card">
+                priced at $${van.price} per day`} key={van.id} >
+                <div  className="van-card">
                     <img src={van.imageUrl} alt={`Image of ${van.name}`} /> 
                     <div className="van-info">
                         <div className="van-info-one">
