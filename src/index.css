@@ -78,9 +78,6 @@ footer{
   text-decoration: underline;
   font-weight: bold;
 }
-/* .navbar-rightside{
-  display: flex;
-} */
 
 .back-button {
   display: block;
@@ -210,6 +207,9 @@ button:active{
   cursor: pointer;
 }
 
+.van-main-container h1{
+  margin-left: 25px;
+}
 .van-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -490,4 +490,74 @@ button:active{
 .host-van-detail-image {
   height: 100px;
   border-radius: 5px;
+}
+
+
+
+
+.van-list-container button {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.van-type {
+  height: 34px;
+  padding: 7px 14px;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFEAD0;
+  color: #4D4D4D;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+.van-list-filter-buttons{
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.van-type:hover {
+  color: #FFEAD0;
+}
+
+.van-type:focus {
+  outline: none;
+}
+
+.van-type.selected {
+  color: #FFEAD0;
+}
+
+.van-type.clear-filters {
+  margin-left: -20px;
+  height: 34px;
+  padding: 6px 26px;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  text-decoration: underline;
+  background-color: transparent;
+  color: #4D4D4D;
+}
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin:20px auto;
+  
+
+}
+
+.not-found-container .link-button {
+  width: 80%;
+  background-color: #161616;
+  color: white;
+  padding: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
 }
