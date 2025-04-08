@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 function Vans() {
-    const [vans, setVans] = React.useState([]);
     const[searchParams, setSearchParams] = useSearchParams();
+    const [vans, setVans] = React.useState([]);
 
     const typeFilter = searchParams.get("type")
 
@@ -24,7 +24,10 @@ function Vans() {
         const vanType = van.type.charAt(0).toUpperCase() + van.type.slice(1)
             return (
                 <Link to={ `${van.id}`} 
-                    state={{search: searchParams.toString() , type: van.type }}
+                    state={{ 
+                        search: `?${searchParams.toString()}`, 
+                        type: typeFilter 
+                    }}
                     aria-label={`View details for ${van.name}, 
                     priced at $${van.price} per day`} 
                     key={van.id} 

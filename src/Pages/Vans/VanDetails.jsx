@@ -4,7 +4,7 @@ import {useParams, Link, useLocation} from "react-router-dom"
 function VanDetails () {
     const params= useParams()
     const location = useLocation()
-    console.log(location.state.type)
+    // console.log(location.state.type)
 
     const[van, setVan] = React.useState(null)
     React.useEffect(()=>{
@@ -15,15 +15,15 @@ function VanDetails () {
 
     
     const search = location.state?.search ||  ""
-    const type = location.state?.search && location.state?.type
+    const type = location.state?.type || "all"
     
     return(
         <div className="van-detail-container">
               <Link
-                to={`..?${search}`}
+                to={`..${search}`}
                 relative="path"
                 className="back-button"
-            >&larr; <span>Back to {type ?  `${type} vans`  : "all vans" }</span></Link>
+            >&larr; <span>Back to {type} vans</span></Link>
 
         {van ? (
             <div className="van-detail">
