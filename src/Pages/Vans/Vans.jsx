@@ -1,26 +1,36 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getVans } from "../../api";
 
 function Vans() {
     const[searchParams, setSearchParams] = useSearchParams();
     const [vans, setVans] = React.useState([]);
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(null);
 
     const typeFilter = searchParams.get("type")
 
     React.useEffect(()=>{
-        fetch("/api/vans")
-        .then(res=>res.json())
-        .then(data=>{
-            setVans( data.vans)
-        })
-
+       async  function loadVans() {
+        setLoading(true)
+        try{
+            const data = await getVans()
+            // console.log("Fetched vans:", data)
+            setVans(data)
+        } catch(err) {
+            setError(err)
+        } finally{
+            setLoading(false)
+        }
+       }
+       loadVans()
     },[] )
 
-    if(!vans.length){ return  ;}
+    // if(!vans.length){ return  ;}
 
     const displayedVans = typeFilter ? vans.filter((van)=>van.type===typeFilter) : vans 
 
-    const vanElements =  displayedVans.map((van)=>{
+    const vanElements =  displayedVans.map(van=>{
         const vanType = van.type.charAt(0).toUpperCase() + van.type.slice(1)
             return (
                 <Link to={ `${van.id}`} 
@@ -62,6 +72,12 @@ function Vans() {
     }
 
 
+    if(loading){
+        return <h1 aria-live="polite">Loading the vans..</h1>
+    }
+    if (error) {
+        return <h1 aria-live="assertive">There was an error: {error.message}</h1>
+    }
     return(
 
         <div className="van-main-container">
