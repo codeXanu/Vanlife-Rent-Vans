@@ -5,12 +5,15 @@ import loginIcon from "../assets/loginIcon.png"
  
 
 function Header() {
+    function fakeLogOut() {
+        localStorage.removeItem("loggedin")
+    }
     return(
-        <header className="nav-bar">
+        <header >
             <NavLink to="/" className="home-logo">
                 <img src={Logog} alt="VANLIFE" width= "144px" />    
             </NavLink>
-            <div >
+            <div className="navigation">
                 <NavLink className={({isActive})=> isActive ? "active-class" : null} to ="/host" >Host</NavLink>
                 <NavLink className={({isActive})=> isActive ? "active-class" : null} to ="/about" >About</NavLink>
                 <NavLink className={({isActive})=> isActive ? "active-class" : null} to ="/vans" >Vans</NavLink>
@@ -20,6 +23,7 @@ function Header() {
                         className="login-icon"
                     />
                 </Link>
+                <button onClick={fakeLogOut}>X</button>
             </div>
         </header>
     )

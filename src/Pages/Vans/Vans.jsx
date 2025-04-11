@@ -76,7 +76,7 @@ function Vans() {
         return <h1 aria-live="polite">Loading the vans..</h1>
     }
     if (error) {
-        return <h1 aria-live="assertive">There was an error: {error.message}</h1>
+        return <h2 aria-live="assertive">There was an error:{error.message} </h2>
     }
     return(
 
