@@ -18,7 +18,7 @@ export default function Login() {
         async function loadUser() {
             try{
                 const data = await loginUser(loginFormData)
-                console.log(data)
+                // console.log(data)
                 setError(null)
                 localStorage.setItem("loggedin", true)
                 navigateTo( redirect, { replace: true })
