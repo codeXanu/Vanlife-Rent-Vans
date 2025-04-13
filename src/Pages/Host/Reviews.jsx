@@ -40,9 +40,9 @@ const reviewsData = [
                 </p>
             </div>
             <section className="host-reviews-overall">
-                <p>
+                
                     <h1>5.0</h1>
-                </p>
+                
                 <BsStarFill className="star" />
                 <p>overall rating</p>
                 

@@ -21,7 +21,7 @@ export default function Login() {
               
                 console.log(data)
                 setError(null)
-                localStorage.setItem("loggedin", true)
+                // localStorage.setItem("loggedin", true)
                 navigateTo( redirect, { replace: true })
             } catch(err) {
                 setError(err)

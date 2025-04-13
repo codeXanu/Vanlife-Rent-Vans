@@ -17,7 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
-const auth = getAuth(app)
+export const auth = getAuth(app)
 
 const vansCollectionRef = collection(db, "vans")
 
@@ -62,8 +62,8 @@ export async function loginUser(creds) {
     try {
         const userCredentials = await signInWithEmailAndPassword(auth, creds.email ,creds.password )
         // console.log(userCredentials)
-        const data = userCredentials.user 
-        return { data } ;
+        const user = userCredentials.user 
+        return { user } ; 
     } catch (error) {
         throw{
             message: error.message,
@@ -71,6 +71,8 @@ export async function loginUser(creds) {
         }
     }
 }
+
+
 
 
 

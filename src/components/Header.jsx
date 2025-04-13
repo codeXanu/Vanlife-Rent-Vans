@@ -2,13 +2,22 @@ import React from "react";
 import {Link, NavLink, useNavigate} from "react-router-dom"
 import Logog from "../assets/logog.png"
 import loginIcon from "../assets/loginIcon.png"
+import { getAuth, signOut } from "firebase/auth";
  
 
 function Header() {
     const navigate = useNavigate();
-    function fakeLogOut() {
-        localStorage.removeItem("loggedin")
-        navigate("/")
+    function userLogOut() {
+        // localStorage.removeItem("loggedin")
+        const auth = getAuth()
+        signOut(auth).then(()=>{
+            console.log("sign out successful");
+            setTimeout(() => {
+                navigate("/"); 
+              }, 10);
+        }).catch((error) => {
+            console.log(error)
+        })
     }
     return(
         <header >
@@ -25,7 +34,7 @@ function Header() {
                         className="login-icon"
                     />
                 </Link>
-                <button onClick={fakeLogOut}>X</button>
+                <button onClick={userLogOut}>X</button>
             </div>
         </header>
     )
