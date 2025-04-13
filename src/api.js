@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore/lite"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 
 // Your web app's Firebase configuration
@@ -15,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
+const auth = getAuth(app)
 
 const vansCollectionRef = collection(db, "vans")
 
@@ -53,6 +56,25 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(() => resolve(), ms))
 }
 
+
+export async function loginUser(creds) {
+   
+    try {
+        const userCredentials = await signInWithEmailAndPassword(auth, creds.email ,creds.password )
+        // console.log(userCredentials)
+        const data = userCredentials.user 
+        return { data } ;
+    } catch (error) {
+        throw{
+            message: error.message,
+            code: error.code
+        }
+    }
+}
+
+
+
+
 // for the fetching the vans on vans page
 
 
@@ -73,19 +95,20 @@ function sleep(ms) {
 // }
 
 // for fetching the login credentials
-export async function loginUser(creds) {
-    const res = await fetch("/api/login",
-        { method: "post", body: JSON.stringify(creds) }
-    )
-    const data = await res.json()
 
-    if (!res.ok) {
-        throw {
-            message: data.message,
-            statusText: res.statusText,
-            status: res.status
-        }
-    }
+// export async function loginUser(creds) {
+//     const res = await fetch("/api/login",
+//         { method: "post", body: JSON.stringify(creds) }
+//     )
+//     const data = await res.json()
 
-    return data
-}
+//     if (!res.ok) {
+//         throw {
+//             message: data.message,
+//             statusText: res.statusText,
+//             status: res.status
+//         }
+//     }
+
+//     return data
+// }

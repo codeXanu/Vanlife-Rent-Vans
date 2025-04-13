@@ -1,12 +1,14 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom"
+import {Link, NavLink, useNavigate} from "react-router-dom"
 import Logog from "../assets/logog.png"
 import loginIcon from "../assets/loginIcon.png"
  
 
 function Header() {
+    const navigate = useNavigate();
     function fakeLogOut() {
         localStorage.removeItem("loggedin")
+        navigate("/")
     }
     return(
         <header >

@@ -14,11 +14,12 @@ export default function Login() {
     function handleSubmit(e) {
         e.preventDefault()
         setStatus("submitting")
-        // console.log(loginFormData)
+        console.log(loginFormData)
         async function loadUser() {
             try{
                 const data = await loginUser(loginFormData)
-                // console.log(data)
+              
+                console.log(data)
                 setError(null)
                 localStorage.setItem("loggedin", true)
                 navigateTo( redirect, { replace: true })
@@ -60,7 +61,7 @@ export default function Login() {
                     placeholder="Password"
                     value={loginFormData.password}
                 />
-                <button disabled={status === "submitting"} >
+                <button >
                     {status === "submitting" ? "Logging in..." : "Log in"}
                 </button>
             </form>
